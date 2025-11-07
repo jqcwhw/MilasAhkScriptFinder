@@ -1,0 +1,33 @@
+<Root>
+  <DefaultMacro>
+    <Major></Major>
+    <Description>Улучшенная версия первого макроса, теперь макрос будет зациклен бесконечно  и будет работать до тех пор пока вы его не выключите, данный макрос позволит вам обойти кик за афк, этот макрос будет заставлять вас бегать в разные стороны каждые 3 секунды</Description>
+    <Comment>https://keyran.net - Free macros download | Скачать бесплатные макросы </Comment>
+    <GUIOption>
+      <RepeatType>0</RepeatType>
+    </GUIOption>
+    <KeyUp>
+      <Syntax></Syntax>
+    </KeyUp>
+    <KeyDown>
+      <Syntax>KeyDown 4 1
+Delay 3064 ms
+KeyUp 4 1
+Delay 3064 ms
+KeyDown 26 1
+Delay 3064 ms
+KeyUp 26 1
+Delay 3064 ms
+KeyDown 22 1
+Delay 3064 ms
+KeyUp 22 1
+Delay 3064 ms
+KeyDown 7 1
+Delay 3064 ms
+KeyUp 7 1
+Delay 3064 ms
+Goto 1</Syntax>
+    </KeyDown>
+    <Software>Roblox</Software>
+  </DefaultMacro>
+</Root>

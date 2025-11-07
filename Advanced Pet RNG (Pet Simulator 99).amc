@@ -1,0 +1,124 @@
+<Root>
+  <DefaultMacro>
+    <Major></Major>
+    <Description>Продвинутый макрос для Пет Симулятор 99 / Pet Simulator 99, теперь вы можете делать автоматическую скупку (Автоскуп) кубиков вместе с автоматическим прокрутом петом (Авторолл), другими словами недавно вышло обновление в PS99, в котором добавили шанс на Extra Eggs, когда они выпадают то окно со скупкой кубиков закрывается, но макрос сделан так, чтоб окно с кубиками даже после этих Extra Eggs не закрывалось, поэтому данный макрос продвинутый.
+Так же думаю необязательно, но всё же стоит гвоорить что за афк вас НЕ КИКНЕТ, так как внутрь макроса внедрены движения (Которые как раз таки и помогают даже после Extra Eggs открыть окно с кубиками)
+Так же хотел бы объяснить как желательно вам надо встать:
+Встаньте прям в центре круга продажи кубиков, а дальше можете уже ничего не делать, макрос работает так, что вы сами автоматически идёте назад и обратно в круг продажи.
+! Разрешение экрана, подходящее для данного макроса 1920 x 1080 !</Description>
+    <Comment>&lt;3</Comment>
+    <GUIOption>
+      <RepeatType>0</RepeatType>
+    </GUIOption>
+    <KeyUp>
+      <Syntax></Syntax>
+    </KeyUp>
+    <KeyDown>
+      <Syntax>LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+MoveTo 601 451
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+MoveTo 968 447
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+MoveTo 1315 453
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+MoveTo 595 698
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+MoveTo 962 699
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+MoveTo 1323 697
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+LeftDown 1
+Delay 5
+LeftUp 1
+Delay 5
+KeyDown 22 1
+Delay 1000 ms
+KeyUp 22 1
+Delay 64
+KeyDown 26 1
+Delay 1000 ms
+KeyUp 26 1
+Delay 10 ms</Syntax>
+    </KeyDown>
+    <Software>Roblox</Software>
+  </DefaultMacro>
+</Root>

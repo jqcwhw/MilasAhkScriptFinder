@@ -107,16 +107,20 @@ export default function Home() {
     },
     onSuccess: (data) => {
       if (data.success) {
+        const totalText = data.totalCount > data.results.length 
+          ? `Found ${data.results.length} of ${data.totalCount} total AutoHotkey scripts`
+          : `Found ${data.results.length} AutoHotkey scripts`;
         toast({
           title: "Search completed",
-          description: `Found ${data.results.length} AutoHotkey scripts`,
+          description: totalText,
         });
       }
     },
-    onError: () => {
+    onError: (error: any) => {
+      const errorMessage = error?.message || "Unable to search GitHub. Please check your GitHub token and try again.";
       toast({
         title: "Search failed",
-        description: "Unable to search GitHub. Please try again.",
+        description: errorMessage,
         variant: "destructive",
       });
     },
@@ -312,6 +316,9 @@ export default function Home() {
               <>
                 <p className="text-sm text-muted-foreground">
                   Found {searchResults.length} AutoHotkey scripts matching "{searchQuery}"
+                  {searchMutation.data?.totalCount && searchMutation.data.totalCount > searchResults.length && (
+                    <span> (showing first {searchResults.length} of {searchMutation.data.totalCount} total results)</span>
+                  )}
                 </p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {searchResults.map((result: SearchResult) => (

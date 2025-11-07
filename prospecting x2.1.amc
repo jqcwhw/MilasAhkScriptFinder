@@ -1,0 +1,38 @@
+<Root>
+  <DefaultMacro>
+    <Major></Major>
+    <Description>Макрос для игры prospecting, опять вроде как получилось улучшить макрос и уменьшить тайминги до минимальных.
+Рекомендуется использовать вместе с 170% dig speed и тотемом с x2 силой.
+</Description>
+    <Comment>dig speed это игровой параметр и тотем это игровой предмет</Comment>
+    <GUIOption>
+      <RepeatType>0</RepeatType>
+    </GUIOption>
+    <KeyUp>
+      <Syntax></Syntax>
+    </KeyUp>
+    <KeyDown>
+      <Syntax>Delay 60 ms
+LeftDown 1
+Delay 390 ms
+LeftUp 1
+Delay 900 ms
+KeyDown 26 1
+Delay 450 ms
+KeyUp 26 1
+Delay 300 ms
+LeftDown 1
+LeftUp 1
+Delay 350 ms
+LeftDown 1
+Delay 3200 ms
+LeftUp 1
+Delay 800 ms
+KeyDown 22 1
+Delay 450 ms
+KeyUp 22 1
+Delay 60 ms</Syntax>
+    </KeyDown>
+    <Software>Roblox</Software>
+  </DefaultMacro>
+</Root>

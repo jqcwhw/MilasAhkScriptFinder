@@ -1,0 +1,51 @@
+<Root>
+  <DefaultMacro>
+    <Major></Major>
+    <Description>Данный макрос подойдет для плейса Prospecting, что бы он работал более точно вам не обходимо иметь Скорость копания под 260% и Вибрацию под 30-35 при 1000 емкости, у кого то подойдет, а у кого то нет.
+
+Разрешение экрана 1920х1080, чувствительность мыши dpi1200</Description>
+    <Comment>https://keyran.net - Free macros download | Скачать бесплатные макросы </Comment>
+    <GUIOption>
+      <RepeatType>0</RepeatType>
+    </GUIOption>
+    <KeyUp>
+      <Syntax></Syntax>
+    </KeyUp>
+    <KeyDown>
+      <Syntax>Delay 15 ms
+KeyUp 68 1
+Delay 360 ms
+KeyUp 225 1
+Delay 413 ms
+LeftDown 1
+Delay 285 ms
+LeftUp 1
+Delay 16 ms
+MoveTo 960 551
+Delay 16 ms
+MoveTo 960 551
+Delay 967 ms
+LeftDown 1
+Delay 216 ms
+LeftUp 1
+Delay 800 ms
+KeyDown 26 1
+Delay 209 ms
+KeyUp 26 1
+Delay 473 ms
+LeftDown 1
+Delay 471 ms
+LeftUp 1
+Delay 512 ms
+LeftDown 1
+Delay 4623 ms
+LeftUp 1
+Delay 2123 ms
+KeyDown 22 1
+Delay 209 ms
+KeyUp 22 1
+Delay 473 ms</Syntax>
+    </KeyDown>
+    <Software>Roblox</Software>
+  </DefaultMacro>
+</Root>

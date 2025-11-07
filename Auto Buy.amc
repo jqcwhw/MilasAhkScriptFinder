@@ -1,0 +1,40 @@
+<Root>
+  <DefaultMacro>
+    <Major>Auto Buy pets</Major>
+    <Description>На рынкее можно автоматически покупать желанные вами петы. Этот макрос очень удобен и лёгок в использовании надо лишь нажать горячую клавишу и всё.</Description>
+    <Comment>https://keyran.net - Free macros download | Скачать бесплатные макросы </Comment>
+    <GUIOption>
+      <RepeatType>2</RepeatType>
+    </GUIOption>
+    <KeyUp>
+      <Syntax></Syntax>
+    </KeyUp>
+    <KeyDown>
+      <Syntax>KeyDown 8 1
+Delay 22 ms
+KeyUp 8 1
+Delay 22 ms
+KeyDown 88 1
+Delay 22 ms
+KeyUp 88 1
+Delay 22 ms
+KeyDown 88 1
+Delay 22 ms
+KeyUp 88 1
+Delay 22 ms
+KeyDown 88 1
+Delay 22 ms
+KeyUp 88 1
+Delay 22 ms
+KeyDown 4 1
+Delay 50 ms
+KeyUp 4 1
+Delay 22 ms
+KeyDown 7 1
+Delay 50 ms
+KeyUp 7 1
+Delay 22 ms</Syntax>
+    </KeyDown>
+    <Software>Roblox</Software>
+  </DefaultMacro>
+</Root>

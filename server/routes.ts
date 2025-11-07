@@ -4,28 +4,31 @@ import { storage } from "./storage";
 import { githubSearchSchema, personalScriptSchema, type GitHubSearchResult } from "@shared/schema";
 import { z } from "zod";
 
-async function searchGitHubForAHKScripts(query: string, page: number = 1, perPage: number = 30): Promise<GitHubSearchResult[]> {
-  try {
-    const encodedQuery = encodeURIComponent(`${query} extension:ahk`);
-    const url = `https://api.github.com/search/code?q=${encodedQuery}&page=${page}&per_page=${perPage}`;
-    
-    const response = await fetch(url, {
-      headers: {
-        'Accept': 'application/vnd.github.v3+json',
-        'User-Agent': 'AHK-Script-Finder',
-      },
-    });
+async function searchGitHubForAHKScripts(query: string, page: number = 1, perPage: number = 30): Promise<{ results: GitHubSearchResult[], totalCount: number }> {
+  const encodedQuery = encodeURIComponent(`${query} extension:ahk`);
+  const url = `https://api.github.com/search/code?q=${encodedQuery}&page=${page}&per_page=${perPage}`;
+  
+  const headers: Record<string, string> = {
+    'Accept': 'application/vnd.github.v3+json',
+    'User-Agent': 'AHK-Script-Finder',
+  };
+  
+  if (process.env.GITHUB_TOKEN) {
+    headers['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
+  }
+  
+  const response = await fetch(url, { headers });
 
-    if (!response.ok) {
-      console.error('GitHub API error:', response.status, response.statusText);
-      return [];
-    }
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`GitHub API error: ${response.status} ${response.statusText} - ${errorText}`);
+  }
 
-    const data = await response.json();
-    
-    if (!data.items || data.items.length === 0) {
-      return [];
-    }
+  const data = await response.json();
+  
+  if (!data.items || data.items.length === 0) {
+    return { results: [], totalCount: data.total_count || 0 };
+  }
 
     const results: GitHubSearchResult[] = await Promise.all(
       data.items.map(async (item: any) => {
@@ -33,12 +36,16 @@ async function searchGitHubForAHKScripts(query: string, page: number = 1, perPag
         let language: "AHK v1" | "AHK v2" = "AHK v1";
         
         try {
-          const contentResponse = await fetch(item.url, {
-            headers: {
-              'Accept': 'application/vnd.github.v3.raw',
-              'User-Agent': 'AHK-Script-Finder',
-            },
-          });
+          const contentHeaders: Record<string, string> = {
+            'Accept': 'application/vnd.github.v3.raw',
+            'User-Agent': 'AHK-Script-Finder',
+          };
+          
+          if (process.env.GITHUB_TOKEN) {
+            contentHeaders['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
+          }
+          
+          const contentResponse = await fetch(item.url, { headers: contentHeaders });
           
           if (contentResponse.ok) {
             const content = await contentResponse.text();
@@ -69,30 +76,28 @@ async function searchGitHubForAHKScripts(query: string, page: number = 1, perPag
       })
     );
 
-    return results;
-  } catch (error) {
-    console.error('Error searching GitHub:', error);
-    return [];
-  }
+    return { results, totalCount: data.total_count || results.length };
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/search/github", async (req, res) => {
     try {
       const validated = githubSearchSchema.parse(req.body);
-      const results = await searchGitHubForAHKScripts(validated.query, validated.page, validated.perPage);
+      const { results, totalCount } = await searchGitHubForAHKScripts(validated.query, validated.page, validated.perPage);
       
       res.json({
         success: true,
         results,
         total: results.length,
+        totalCount,
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
-        res.status(400).json({ success: false, error: error.errors });
+        res.status(400).json({ success: false, error: 'Invalid request parameters' });
       } else {
         console.error('Search error:', error);
-        res.status(500).json({ success: false, error: 'Search failed' });
+        const errorMessage = error instanceof Error ? error.message : 'Search failed';
+        res.status(500).json({ success: false, error: errorMessage });
       }
     }
   });
