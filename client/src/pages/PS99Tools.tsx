@@ -137,26 +137,31 @@ export default function PS99Tools() {
         </div>
 
         <Tabs defaultValue="clans" className="space-y-4">
-          <TabsList className="grid w-full grid-cols-5">
-            <TabsTrigger value="clans" data-testid="tab-clans">
-              <Trophy className="w-4 h-4 mr-2" />
-              Clan Tracker
+          <TabsList className="grid w-full grid-cols-3 md:grid-cols-5 gap-1">
+            <TabsTrigger value="clans" data-testid="tab-clans" className="flex-1 min-w-0">
+              <Trophy className="w-4 h-4 mr-1 md:mr-2" />
+              <span className="hidden sm:inline">Clan Tracker</span>
+              <span className="sm:hidden">Clans</span>
             </TabsTrigger>
-            <TabsTrigger value="rap" data-testid="tab-rap">
-              <TrendingUp className="w-4 h-4 mr-2" />
-              RAP Checker
+            <TabsTrigger value="rap" data-testid="tab-rap" className="flex-1 min-w-0">
+              <TrendingUp className="w-4 h-4 mr-1 md:mr-2" />
+              <span className="hidden sm:inline">RAP</span>
+              <span className="sm:hidden">RAP</span>
             </TabsTrigger>
-            <TabsTrigger value="battle" data-testid="tab-battle">
-              <Award className="w-4 h-4 mr-2" />
-              Clan Battle
+            <TabsTrigger value="battle" data-testid="tab-battle" className="flex-1 min-w-0">
+              <Award className="w-4 h-4 mr-1 md:mr-2" />
+              <span className="hidden sm:inline">Battle</span>
+              <span className="sm:hidden">Battle</span>
             </TabsTrigger>
-            <TabsTrigger value="collections" data-testid="tab-collections">
-              <Package className="w-4 h-4 mr-2" />
-              Collections
+            <TabsTrigger value="collections" data-testid="tab-collections" className="flex-1 min-w-0">
+              <Package className="w-4 h-4 mr-1 md:mr-2" />
+              <span className="hidden sm:inline">Collections</span>
+              <span className="sm:hidden">Items</span>
             </TabsTrigger>
-            <TabsTrigger value="lookup" data-testid="tab-lookup">
-              <CheckCircle className="w-4 h-4 mr-2" />
-              Item Lookup
+            <TabsTrigger value="lookup" data-testid="tab-lookup" className="flex-1 min-w-0">
+              <CheckCircle className="w-4 h-4 mr-1 md:mr-2" />
+              <span className="hidden sm:inline">Lookup</span>
+              <span className="sm:hidden">Find</span>
             </TabsTrigger>
           </TabsList>
 

@@ -226,6 +226,47 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.post("/api/ai/game-script", async (req, res) => {
+    try {
+      const { gameName, taskDescription, scriptType } = req.body;
+      
+      if (!gameName || !taskDescription) {
+        return res.status(400).json({ success: false, error: 'Game name and task description are required' });
+      }
+
+      const systemPrompt = 'You are an expert in AutoHotkey game automation. Generate complete, production-ready AutoHotkey scripts with proper error handling, safety features, and clear comments.';
+      const userPrompt = `Generate a complete AutoHotkey script for the following:
+
+Game: ${gameName}
+Task: ${taskDescription}
+Script Type: ${scriptType}
+
+Requirements:
+1. Include proper error handling
+2. Add clear comments explaining each section
+3. Use efficient AutoHotkey coding practices
+4. Include safety features (pause/exit hotkeys like F1 to pause, F2 to exit)
+5. Make it ready to run without modifications
+
+Provide ONLY the AutoHotkey code without explanations or markdown formatting.`;
+
+      const response = await openai.chat.completions.create({
+        model: 'gpt-4o-mini',
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userPrompt },
+        ],
+        temperature: 0.5,
+      });
+
+      const result = response.choices[0]?.message?.content || '';
+      res.json({ success: true, result });
+    } catch (error) {
+      console.error('Error generating game script:', error);
+      res.status(500).json({ success: false, error: 'Failed to generate game script' });
+    }
+  });
+
   // Big Games PS99 API Routes
   const PS99_API_BASE = 'https://ps99.biggamesapi.io/api';
 
