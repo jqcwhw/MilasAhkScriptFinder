@@ -843,7 +843,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="bg-background p-6 rounded-lg">
+        <div className="bg-background border-2 border-emerald-400 dark:border-emerald-600 p-6 rounded-lg">
           <div className="mb-4 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-2 border-emerald-400 dark:border-emerald-600 rounded-lg p-4">
             <h2 className="text-2xl font-bold text-emerald-700 dark:text-emerald-300">AutoHotkey Script Tools</h2>
             <p className="text-sm text-emerald-800 dark:text-emerald-200 mt-1">Search GitHub, browse curated scripts, manage your library, and generate custom AHK scripts</p>
