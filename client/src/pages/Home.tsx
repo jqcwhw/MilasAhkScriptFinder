@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Plus, Loader2, Trophy, Code2, Sparkles, ArrowRight, Gamepad2, Zap } from "lucide-react";
+import { Plus, Loader2, Trophy, Code2, Sparkles, ArrowRight, Gamepad2, Zap, Activity, Info } from "lucide-react";
 import SearchBar from "@/components/SearchBar";
 import SearchResultCard, { SearchResult } from "@/components/SearchResultCard";
 import ScriptCard, { Script } from "@/components/ScriptCard";
@@ -20,6 +20,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const mockCuratedScripts: Script[] = [
   {
@@ -859,6 +860,9 @@ export default function Home() {
             <TabsTrigger value="tester" data-testid="tab-tester">
               Script Tester
             </TabsTrigger>
+            <TabsTrigger value="optimizer" data-testid="tab-optimizer">
+              System Optimizer
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="search" className="space-y-4">
@@ -1087,6 +1091,107 @@ F1::MsgBox('Hello World!')"
                 </div>
               </div>
             </div>
+          </TabsContent>
+
+          <TabsContent value="optimizer" className="space-y-6">
+            <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-lg border p-6">
+              <h2 className="text-2xl font-bold mb-2 text-emerald-900 dark:text-emerald-100">System Performance Optimizer</h2>
+              <p className="text-emerald-800 dark:text-emerald-200 mb-4">
+                Boost your PC's gaming performance with specialized tools for RAM cleaning, background app management, and system monitoring. Perfect for low-end PCs and Roblox players.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div className="flex items-center gap-2">
+                  <Badge variant="secondary" className="bg-emerald-200 dark:bg-emerald-800">RAM Cleaning</Badge>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Badge variant="secondary" className="bg-teal-200 dark:bg-teal-800">Process Management</Badge>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Badge variant="secondary" className="bg-cyan-200 dark:bg-cyan-800">Performance Monitoring</Badge>
+                </div>
+              </div>
+            </div>
+
+            {curatedScriptsQuery.isLoading ? (
+              <div className="flex items-center justify-center py-12">
+                <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
+              </div>
+            ) : (
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-amber-500" />
+                    RAM & Memory Tools
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {curatedScripts
+                      .filter((script) => script.tags?.some(tag => ['RAM', 'Memory', 'Low-End PC'].includes(tag)))
+                      .map((script) => (
+                        <ScriptCard
+                          key={script.id}
+                          script={script}
+                          onDownload={handleDownload}
+                          onPreview={handlePreview}
+                        />
+                      ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <Trophy className="w-5 h-5 text-violet-500" />
+                    Gaming Optimizers
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {curatedScripts
+                      .filter((script) => script.tags?.some(tag => ['Gaming', 'Roblox', 'Process', 'Manager'].includes(tag)))
+                      .map((script) => (
+                        <ScriptCard
+                          key={script.id}
+                          script={script}
+                          onDownload={handleDownload}
+                          onPreview={handlePreview}
+                        />
+                      ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <Activity className="w-5 h-5 text-emerald-500" />
+                    Performance Monitors
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {curatedScripts
+                      .filter((script) => script.tags?.some(tag => ['Monitor', 'CPU', 'GPU', 'Performance'].includes(tag)))
+                      .map((script) => (
+                        <ScriptCard
+                          key={script.id}
+                          script={script}
+                          onDownload={handleDownload}
+                          onPreview={handlePreview}
+                        />
+                      ))}
+                  </div>
+                </div>
+
+                <div className="bg-muted rounded-lg p-6 space-y-3">
+                  <h3 className="font-semibold flex items-center gap-2">
+                    <Info className="w-5 h-5" />
+                    Optimization Tips for Low-End PCs
+                  </h3>
+                  <ul className="text-sm text-muted-foreground space-y-2 list-disc list-inside">
+                    <li>Close unnecessary browser tabs and background apps before gaming</li>
+                    <li>Use the RAM cleaner regularly to free up memory</li>
+                    <li>Enable "Maximum Gaming Mode" when playing resource-intensive games like Roblox</li>
+                    <li>Monitor your CPU/GPU temperatures to prevent thermal throttling</li>
+                    <li>Disable Windows visual effects for better performance</li>
+                    <li>Keep your graphics drivers up to date</li>
+                    <li>Run these scripts as administrator for full access to system resources</li>
+                  </ul>
+                </div>
+              </div>
+            )}
           </TabsContent>
         </Tabs>
       </main>
