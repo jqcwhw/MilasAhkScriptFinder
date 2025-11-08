@@ -115,7 +115,7 @@ export default function PS99Tools() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-6">
+    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-pink-50 dark:from-gray-950 dark:via-violet-950/20 dark:to-gray-900 p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -125,7 +125,7 @@ export default function PS99Tools() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-4xl font-bold" data-testid="text-ps99-title">Pet Simulator 99 Tools</h1>
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-violet-600 to-pink-600 bg-clip-text text-transparent" data-testid="text-ps99-title">Pet Simulator 99 Tools</h1>
               <p className="text-muted-foreground mt-2">
                 Real-time clan tracking, RAP checker, and more powered by Big Games API
               </p>

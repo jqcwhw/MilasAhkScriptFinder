@@ -785,10 +785,10 @@ export default function Home() {
   const curatedScripts = (curatedScriptsQuery.data?.scripts as Script[]) || mockCuratedScripts;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-gray-950 dark:via-emerald-950/20 dark:to-gray-900">
       <header className="border-b bg-background/80 backdrop-blur-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between gap-4">
-          <h1 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent" data-testid="text-app-title">
+          <h1 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent" data-testid="text-app-title">
             AHK Script Finder
           </h1>
           <ThemeToggle />
@@ -1141,11 +1141,11 @@ F1::MsgBox('Hello World!')"
                 <div>
                   <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
                     <Trophy className="w-5 h-5 text-violet-500" />
-                    Gaming Optimizers
+                    System Optimizers
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {curatedScripts
-                      .filter((script) => script.tags?.some(tag => ['Gaming', 'Roblox', 'Process', 'Manager'].includes(tag)))
+                      .filter((script) => script.tags?.some(tag => ['System', 'Optimizer', 'Process', 'Manager', 'Cleanup'].includes(tag)))
                       .map((script) => (
                         <ScriptCard
                           key={script.id}

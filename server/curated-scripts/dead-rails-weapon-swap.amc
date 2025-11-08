@@ -1,0 +1,43 @@
+<Root>
+  <DefaultMacro>
+    <Major>Weapon Swap</Major>
+    <Description>Данный макрос предназначен для игры "Dead rails" С помощью него вы сможете свапать и перезаряжать оружия, тем самым ломая скрипт игры и стреляя без остановки. 
+Что бы макрос работал вы должны поставить два любых оружия (Кроме маусера) в 2 и 3 слот. 
+После того как вы это сделали возьмите оружие под вторым слотом и используйте данный макро.</Description>
+    <Comment>https://keyran.net - Free macros download | Скачать бесплатные макросы </Comment>
+    <GUIOption>
+      <RepeatType>0</RepeatType>
+    </GUIOption>
+    <KeyUp>
+      <Syntax></Syntax>
+    </KeyUp>
+    <KeyDown>
+      <Syntax>LeftDown 1
+Delay 100 ms
+LeftUp 1
+Delay 100 ms
+KeyDown 21 1
+Delay 100 ms
+KeyUp 21 1
+Delay 100 ms
+KeyDown 32 1
+Delay 100 ms
+KeyUp 32 1
+Delay 175 ms
+LeftDown 1
+Delay 100 ms
+LeftUp 1
+Delay 100 ms
+KeyDown 21 1
+Delay 100 ms
+KeyUp 21 1
+Delay 100 ms
+KeyDown 31 1
+Delay 100 ms
+KeyUp 31 1
+Delay 100 ms
+GoWhile 1 3</Syntax>
+    </KeyDown>
+    <Software>Roblox</Software>
+  </DefaultMacro>
+</Root>

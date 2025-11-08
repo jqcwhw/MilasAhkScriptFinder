@@ -1,0 +1,49 @@
+<Root>
+  <DefaultMacro>
+    <Major></Major>
+    <Description>макрос для подъёма по лестнице pet sim 99 (не вертите камерой,если камера не ровная спрыгните с тлатформы и запустите макрос)</Description>
+    <Comment>https://keyran.net - Free macros download | Скачать бесплатные макросы </Comment>
+    <GUIOption>
+      <RepeatType>0</RepeatType>
+    </GUIOption>
+    <KeyUp>
+      <Syntax></Syntax>
+    </KeyUp>
+    <KeyDown>
+      <Syntax>KeyDown 26 1
+Delay 3 s
+KeyUp 26 1
+Delay 1 s
+KeyDown 4 1
+Delay 2 s
+KeyUp 4 1
+Delay 64
+KeyDown 22 1
+Delay 2 s
+KeyUp 22 1
+Delay 64
+KeyDown 7 1
+Delay 2 s
+KeyUp 7 1
+Delay 64
+KeyDown 26 1
+Delay 2 s
+KeyUp 26 1
+Delay 64
+KeyDown 4 1
+Delay 2 s
+KeyUp 4 1
+Delay 64
+KeyDown 22 1
+Delay 2 s
+KeyUp 22 1
+Delay 64
+KeyDown 7 1
+Delay 2 s
+KeyUp 7 1
+Delay 64
+Goto 17</Syntax>
+    </KeyDown>
+    <Software>Roblox</Software>
+  </DefaultMacro>
+</Root>
