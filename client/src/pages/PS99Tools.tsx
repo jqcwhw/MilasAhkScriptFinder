@@ -290,7 +290,7 @@ export default function PS99Tools() {
                               <p className="font-semibold">{clan.Name}</p>
                               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                                 <Users className="w-3 h-3" />
-                                <span>{clan.Members} members</span>
+                                <span>{clan.Members?.length || 0} members</span>
                                 <span>•</span>
                                 <span>{clan.CountryCode}</span>
                               </div>
