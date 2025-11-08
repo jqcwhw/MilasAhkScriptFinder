@@ -785,12 +785,14 @@ export default function Home() {
   const curatedScripts = (curatedScriptsQuery.data?.scripts as Script[]) || mockCuratedScripts;
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b bg-background/80 backdrop-blur-lg sticky top-0 z-50">
+    <div className="min-h-screen bg-blue-50/30 dark:bg-slate-950">
+      <header className="border-b bg-background/95 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between gap-4">
-          <h1 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent" data-testid="text-app-title">
-            AHK Script Finder
-          </h1>
+          <div className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 border-2 border-emerald-500 dark:border-emerald-600 rounded-lg px-6 py-2 shadow-md">
+            <h1 className="text-2xl md:text-3xl font-bold text-emerald-700 dark:text-emerald-300 tracking-tight" data-testid="text-app-title">
+              AHK Script Finder
+            </h1>
+          </div>
           <ThemeToggle />
         </div>
       </header>
@@ -843,13 +845,13 @@ export default function Home() {
           />
         </div>
 
-        <div className="bg-background border-2 border-emerald-400 dark:border-emerald-600 p-6 rounded-lg">
-          <div className="mb-4 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-2 border-emerald-400 dark:border-emerald-600 rounded-lg p-4">
-            <h2 className="text-2xl font-bold text-emerald-700 dark:text-emerald-300">AutoHotkey Script Tools</h2>
-            <p className="text-sm text-emerald-800 dark:text-emerald-200 mt-1">Search GitHub, browse curated scripts, manage your library, and generate custom AHK scripts</p>
+        <div className="bg-background border-2 border-emerald-500 dark:border-emerald-600 p-6 rounded-lg shadow-lg">
+          <div className="mb-5 bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 border-2 border-emerald-500 dark:border-emerald-600 rounded-lg p-5 shadow-sm">
+            <h2 className="text-2xl font-bold text-emerald-800 dark:text-emerald-200 tracking-tight">AutoHotkey Script Tools</h2>
+            <p className="text-sm text-emerald-700 dark:text-emerald-300 mt-1.5">Search GitHub, browse curated scripts, manage your library, and generate custom AHK scripts</p>
           </div>
           <Tabs defaultValue="search" className="space-y-6">
-            <TabsList className="w-full justify-start overflow-x-auto flex-wrap h-auto gap-2 bg-emerald-50 dark:bg-emerald-950/30 border-2 border-emerald-300 dark:border-emerald-700 rounded-lg">
+            <TabsList className="w-full justify-start overflow-x-auto flex-wrap h-auto gap-2 bg-emerald-100 dark:bg-emerald-950/40 border-2 border-emerald-400 dark:border-emerald-700 rounded-lg p-1.5 shadow-sm">
             <TabsTrigger value="search" data-testid="tab-search" className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
               GitHub Search
             </TabsTrigger>
@@ -904,7 +906,7 @@ export default function Home() {
                 </p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {searchResults.map((result: SearchResult) => (
-                    <div key={result.id} className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-2 border-emerald-300 dark:border-emerald-700 rounded-lg overflow-hidden">
+                    <div key={result.id} className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 border-2 border-emerald-400 dark:border-emerald-700 rounded-lg overflow-hidden shadow-sm">
                       <SearchResultCard
                         result={result}
                         onDownload={handleDownload}
@@ -924,7 +926,7 @@ export default function Home() {
             ) : curatedScripts.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {curatedScripts.map((script) => (
-                  <div key={script.id} className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-2 border-emerald-300 dark:border-emerald-700 rounded-lg overflow-hidden">
+                  <div key={script.id} className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 border-2 border-emerald-400 dark:border-emerald-700 rounded-lg overflow-hidden shadow-sm">
                     <ScriptCard
                       script={script}
                       onDownload={handleDownload}
@@ -961,7 +963,7 @@ export default function Home() {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {personalScripts.map((script: Script) => (
-                  <div key={script.id} className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-2 border-emerald-300 dark:border-emerald-700 rounded-lg overflow-hidden">
+                  <div key={script.id} className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 border-2 border-emerald-400 dark:border-emerald-700 rounded-lg overflow-hidden shadow-sm">
                     <ScriptCard
                       script={script}
                       onDownload={handleDownload}
@@ -975,7 +977,7 @@ export default function Home() {
           </TabsContent>
 
           <TabsContent value="ai" className="space-y-4 bg-background rounded-lg p-4">
-            <div className="border-2 border-emerald-300 dark:border-emerald-700 rounded-lg overflow-hidden">
+            <div className="border-2 border-emerald-400 dark:border-emerald-700 rounded-lg overflow-hidden shadow-sm">
               <AIGenerator
                 prompt={aiPrompt}
                 onPromptChange={setAiPrompt}
@@ -984,17 +986,17 @@ export default function Home() {
               />
             </div>
             {generatedCode && (
-              <div className="border-2 border-emerald-300 dark:border-emerald-700 rounded-lg overflow-hidden">
+              <div className="border-2 border-emerald-400 dark:border-emerald-700 rounded-lg overflow-hidden shadow-sm">
                 <CodeViewer code={generatedCode} title="Generated Script" />
               </div>
             )}
           </TabsContent>
 
           <TabsContent value="tester" className="space-y-4 bg-background rounded-lg p-4">
-            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-2 border-emerald-300 dark:border-emerald-700 rounded-lg p-6 space-y-4">
+            <div className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 border-2 border-emerald-400 dark:border-emerald-700 rounded-lg p-6 space-y-4 shadow-sm">
               <div>
-                <h2 className="text-2xl font-bold mb-2">Script Tester & Validator</h2>
-                <p className="text-muted-foreground mb-4">
+                <h2 className="text-2xl font-bold mb-2 text-emerald-800 dark:text-emerald-200">Script Tester & Validator</h2>
+                <p className="text-emerald-700 dark:text-emerald-300 mb-4">
                   Test and validate your AutoHotkey scripts before downloading. This tool checks for syntax errors and provides helpful feedback.
                 </p>
               </div>
@@ -1107,40 +1109,42 @@ F1::MsgBox('Hello World!')"
           </TabsContent>
 
           <TabsContent value="optimizer" className="space-y-6 bg-background rounded-lg p-4">
-            <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-lg border-2 border-emerald-300 dark:border-emerald-700 p-6">
-              <h2 className="text-2xl font-bold mb-2 text-emerald-900 dark:text-emerald-100">System Performance Optimizer</h2>
-              <p className="text-emerald-800 dark:text-emerald-200 mb-4">
+            <div className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 rounded-lg border-2 border-emerald-400 dark:border-emerald-700 p-6 shadow-sm">
+              <h2 className="text-2xl font-bold mb-2 text-emerald-800 dark:text-emerald-200 tracking-tight">System Performance Optimizer</h2>
+              <p className="text-emerald-700 dark:text-emerald-300 mb-4">
                 Boost your PC's gaming performance with specialized tools for RAM cleaning, background app management, and system monitoring. Perfect for low-end PCs and Roblox players.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                 <div className="flex items-center gap-2">
-                  <Badge variant="secondary" className="bg-emerald-200 dark:bg-emerald-800">RAM Cleaning</Badge>
+                  <Badge variant="secondary" className="bg-emerald-200 dark:bg-emerald-800 shadow-sm">RAM Cleaning</Badge>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Badge variant="secondary" className="bg-teal-200 dark:bg-teal-800">Process Management</Badge>
+                  <Badge variant="secondary" className="bg-teal-200 dark:bg-teal-800 shadow-sm">Process Management</Badge>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Badge variant="secondary" className="bg-cyan-200 dark:bg-cyan-800">Performance Monitoring</Badge>
+                  <Badge variant="secondary" className="bg-cyan-200 dark:bg-cyan-800 shadow-sm">Performance Monitoring</Badge>
                 </div>
               </div>
             </div>
 
             {curatedScriptsQuery.isLoading ? (
               <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
+                <Loader2 className="w-8 h-8 animate-spin text-emerald-600" />
               </div>
             ) : (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-amber-500" />
-                    RAM & Memory Tools
-                  </h3>
+                  <div className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 border-2 border-emerald-400 dark:border-emerald-700 rounded-lg p-3 mb-4 shadow-sm">
+                    <h3 className="text-lg font-bold flex items-center gap-2 text-emerald-800 dark:text-emerald-200">
+                      <Zap className="w-5 h-5 text-amber-500" />
+                      RAM & Memory Tools
+                    </h3>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {curatedScripts
                       .filter((script) => script.tags?.some(tag => ['RAM', 'Memory', 'Low-End PC'].includes(tag)))
                       .map((script) => (
-                        <div key={script.id} className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-2 border-emerald-300 dark:border-emerald-700 rounded-lg overflow-hidden">
+                        <div key={script.id} className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 border-2 border-emerald-400 dark:border-emerald-700 rounded-lg overflow-hidden shadow-sm">
                           <ScriptCard
                             script={script}
                             onDownload={handleDownload}
@@ -1152,15 +1156,17 @@ F1::MsgBox('Hello World!')"
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                    <Trophy className="w-5 h-5 text-violet-500" />
-                    System Optimizers
-                  </h3>
+                  <div className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 border-2 border-emerald-400 dark:border-emerald-700 rounded-lg p-3 mb-4 shadow-sm">
+                    <h3 className="text-lg font-bold flex items-center gap-2 text-emerald-800 dark:text-emerald-200">
+                      <Trophy className="w-5 h-5 text-violet-500" />
+                      System Optimizers
+                    </h3>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {curatedScripts
                       .filter((script) => script.tags?.some(tag => ['System', 'Optimizer', 'Process', 'Manager', 'Cleanup'].includes(tag)))
                       .map((script) => (
-                        <div key={script.id} className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-2 border-emerald-300 dark:border-emerald-700 rounded-lg overflow-hidden">
+                        <div key={script.id} className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 border-2 border-emerald-400 dark:border-emerald-700 rounded-lg overflow-hidden shadow-sm">
                           <ScriptCard
                             script={script}
                             onDownload={handleDownload}
@@ -1172,15 +1178,17 @@ F1::MsgBox('Hello World!')"
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                    <Activity className="w-5 h-5 text-emerald-500" />
-                    Performance Monitors
-                  </h3>
+                  <div className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 border-2 border-emerald-400 dark:border-emerald-700 rounded-lg p-3 mb-4 shadow-sm">
+                    <h3 className="text-lg font-bold flex items-center gap-2 text-emerald-800 dark:text-emerald-200">
+                      <Activity className="w-5 h-5 text-emerald-500" />
+                      Performance Monitors
+                    </h3>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {curatedScripts
                       .filter((script) => script.tags?.some(tag => ['Monitor', 'CPU', 'GPU', 'Performance'].includes(tag)))
                       .map((script) => (
-                        <div key={script.id} className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border-2 border-emerald-300 dark:border-emerald-700 rounded-lg overflow-hidden">
+                        <div key={script.id} className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-950/50 dark:to-teal-950/50 border-2 border-emerald-400 dark:border-emerald-700 rounded-lg overflow-hidden shadow-sm">
                           <ScriptCard
                             script={script}
                             onDownload={handleDownload}
