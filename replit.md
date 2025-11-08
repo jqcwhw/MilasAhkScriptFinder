@@ -35,6 +35,16 @@ Preferred communication style: Simple, everyday language.
 - AI-powered script generation interface
 - Code syntax highlighting and copy functionality
 - Responsive design with mobile-first approach
+- **Pet Simulator 99 Tools** (Real-time Big Games API integration)
+  - Live clan tracker with top 20 leaderboard
+  - Individual clan lookup and statistics
+  - Active clan battle monitoring
+  - RAP (Recent Average Price) checker for pets and items
+  - Real-time data updates every 30-60 seconds
+- **Pre-loaded Scripts**
+  - Fisch Macro V11.2 for Roblox fishing automation
+  - PS99 Enhanced Clan Tracker for Pet Simulator 99
+  - InkGame AutoRoll for Ink Game power rolling
 
 ### Backend Architecture
 
@@ -83,6 +93,13 @@ Preferred communication style: Simple, everyday language.
   - Filters by .ahk file extension
   - Returns code preview, repository metadata, and download URLs
   - Rate limiting considerations (unauthenticated requests)
+- Big Games PS99 Public API (https://ps99.biggamesapi.io/api)
+  - Real-time Pet Simulator 99 game data
+  - Clan rankings, battle information, and member data
+  - RAP (Recent Average Price) for pets and items  
+  - Collections data (pets, eggs, items, etc.)
+  - No API key required - public access
+  - Endpoints: /clans, /clan/:name, /activeClanBattle, /rap, /exists, /collections
 
 **Database Services**
 - Neon Database (PostgreSQL serverless) - configured but not yet connected

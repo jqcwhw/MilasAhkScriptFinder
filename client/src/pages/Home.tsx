@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Plus, Loader2 } from "lucide-react";
+import { Plus, Loader2, Trophy } from "lucide-react";
 import SearchBar from "@/components/SearchBar";
 import SearchResultCard, { SearchResult } from "@/components/SearchResultCard";
 import ScriptCard, { Script } from "@/components/ScriptCard";
@@ -779,10 +780,16 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <header className="border-b sticky top-0 bg-background/95 backdrop-blur z-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <h1 className="text-xl md:text-2xl font-bold" data-testid="text-app-title">
               AHK Script Finder
             </h1>
+            <Link href="/ps99-tools">
+              <Button variant="outline" size="sm" data-testid="link-ps99-tools">
+                <Trophy className="w-4 h-4 mr-2" />
+                PS99 Tools
+              </Button>
+            </Link>
           </div>
           <ThemeToggle />
         </div>
