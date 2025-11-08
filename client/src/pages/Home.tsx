@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Plus, Loader2, Trophy } from "lucide-react";
+import { Plus, Loader2, Trophy, Code2, Sparkles, ArrowRight, Gamepad2, Zap } from "lucide-react";
 import SearchBar from "@/components/SearchBar";
 import SearchResultCard, { SearchResult } from "@/components/SearchResultCard";
 import ScriptCard, { Script } from "@/components/ScriptCard";
@@ -19,6 +19,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Card } from "@/components/ui/card";
 
 const mockCuratedScripts: Script[] = [
   {
@@ -776,26 +777,71 @@ export default function Home() {
   const searchResults = (searchMutation.data?.results as SearchResult[]) || [];
   const personalScripts = (personalScriptsQuery.data?.scripts as Script[]) || [];
 
+  const curatedScriptsQuery = useQuery<{ success: boolean; scripts: Script[] }>({
+    queryKey: ["/api/scripts/curated"],
+  });
+
+  const curatedScripts = (curatedScriptsQuery.data?.scripts as Script[]) || mockCuratedScripts;
+
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b sticky top-0 bg-background/95 backdrop-blur z-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-900">
+      <header className="border-b bg-background/80 backdrop-blur-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <h1 className="text-xl md:text-2xl font-bold" data-testid="text-app-title">
-              AHK Script Finder
-            </h1>
-            <Link href="/ps99-tools">
-              <Button variant="outline" size="sm" data-testid="link-ps99-tools">
-                <Trophy className="w-4 h-4 mr-2" />
-                PS99 Tools
-              </Button>
-            </Link>
-          </div>
+          <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent" data-testid="text-app-title">
+            AHK Script Finder
+          </h1>
           <ThemeToggle />
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 md:px-8 py-6 md:py-8">
+        <div className="mb-8 grid md:grid-cols-2 gap-4">
+          <Link href="/ps99-tools" data-testid="link-ps99-tools-card">
+            <Card className="p-6 bg-gradient-to-br from-violet-500 to-purple-600 text-white hover-elevate active-elevate-2 cursor-pointer group relative" data-testid="card-ps99-tools">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <Trophy className="w-6 h-6" />
+                  <h2 className="text-2xl font-bold">PS99 Tools</h2>
+                </div>
+                <Gamepad2 className="w-8 h-8 opacity-50" />
+              </div>
+              <p className="text-white/90 mb-4 text-sm">
+                Real-time Pet Simulator 99 clan tracker, RAP checker, and battle monitor using Big Games API
+              </p>
+              <div className="flex items-center gap-2 text-sm font-medium">
+                <span>Explore Live Data</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+              <div className="mt-3 inline-flex items-center gap-1.5 bg-white/20 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold animate-pulse">
+                <Zap className="w-3 h-3" />
+                Click me!
+              </div>
+            </Card>
+          </Link>
+
+          <Link href="/python-transcriber" data-testid="link-python-transcriber-card">
+            <Card className="p-6 bg-gradient-to-br from-fuchsia-500 to-pink-600 text-white hover-elevate active-elevate-2 cursor-pointer group relative" data-testid="card-python-transcriber">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <Code2 className="w-6 h-6" />
+                  <h2 className="text-2xl font-bold">Python Transcriber</h2>
+                </div>
+                <Sparkles className="w-8 h-8 opacity-50" />
+              </div>
+              <p className="text-white/90 mb-4 text-sm">
+                AI-powered Python to AutoHotkey converter with validation, debugging, and instant downloads
+              </p>
+              <div className="flex items-center gap-2 text-sm font-medium">
+                <span>Convert Code Now</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+              <div className="mt-3 inline-flex items-center gap-1.5 bg-white/20 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold animate-pulse">
+                <Zap className="w-3 h-3" />
+                Click me!
+              </div>
+            </Card>
+          </Link>
+        </div>
         <div className="mb-6">
           <SearchBar
             value={searchQuery}
@@ -869,16 +915,26 @@ export default function Home() {
           </TabsContent>
 
           <TabsContent value="curated" className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {mockCuratedScripts.map((script) => (
-                <ScriptCard
-                  key={script.id}
-                  script={script}
-                  onDownload={handleDownload}
-                  onPreview={handlePreview}
-                />
-              ))}
-            </div>
+            {curatedScriptsQuery.isLoading ? (
+              <div className="flex items-center justify-center py-12">
+                <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
+              </div>
+            ) : curatedScripts.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {curatedScripts.map((script) => (
+                  <ScriptCard
+                    key={script.id}
+                    script={script}
+                    onDownload={handleDownload}
+                    onPreview={handlePreview}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 text-muted-foreground">
+                <p>No curated scripts available</p>
+              </div>
+            )}
           </TabsContent>
 
           <TabsContent value="personal" className="space-y-4">

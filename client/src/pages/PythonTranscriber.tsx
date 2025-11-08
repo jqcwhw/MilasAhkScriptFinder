@@ -8,7 +8,7 @@ import { Code, Sparkles, CheckCircle2, Bug, Download, Home } from "lucide-react"
 import { Link } from "wouter";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function PythonTranscriber() {
   const [pythonCode, setPythonCode] = useState("");
@@ -178,7 +178,7 @@ greet('World')"
             <Button
               onClick={handleConvert}
               disabled={convertMutation.isPending || !pythonCode.trim()}
-              className="mt-4 w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700"
+              className="mt-4 w-full bg-gradient-to-r from-violet-600 to-fuchsia-600"
               data-testid="button-convert"
             >
               {convertMutation.isPending ? (
