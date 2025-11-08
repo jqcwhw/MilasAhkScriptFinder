@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Plus, Loader2, Trophy, Code2, Sparkles, ArrowRight, Gamepad2, Zap, Activity, Info } from "lucide-react";
+import { Plus, Loader2, Trophy, Code2, Sparkles, ArrowRight, Gamepad2, Zap, Activity, Info, Github, Library, FolderOpen, Wand2, FlaskConical, Settings2 } from "lucide-react";
 import SearchBar from "@/components/SearchBar";
 import SearchResultCard, { SearchResult } from "@/components/SearchResultCard";
 import ScriptCard, { Script } from "@/components/ScriptCard";
@@ -852,23 +852,29 @@ export default function Home() {
           </div>
           <Tabs defaultValue="search" className="space-y-6">
             <TabsList className="w-full justify-start overflow-x-auto flex-wrap h-auto gap-2 bg-emerald-100 dark:bg-emerald-950/40 border-2 border-emerald-400 dark:border-emerald-700 rounded-lg p-1.5 shadow-sm">
-            <TabsTrigger value="search" data-testid="tab-search" className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
-              GitHub Search
+            <TabsTrigger value="search" data-testid="tab-search" className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white flex items-center gap-2">
+              <Github className="w-4 h-4" />
+              <span>GitHub Search</span>
             </TabsTrigger>
-            <TabsTrigger value="curated" data-testid="tab-curated" className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
-              Curated Library
+            <TabsTrigger value="curated" data-testid="tab-curated" className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white flex items-center gap-2">
+              <Library className="w-4 h-4" />
+              <span>Curated Library</span>
             </TabsTrigger>
-            <TabsTrigger value="personal" data-testid="tab-personal" className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
-              My Scripts
+            <TabsTrigger value="personal" data-testid="tab-personal" className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white flex items-center gap-2">
+              <FolderOpen className="w-4 h-4" />
+              <span>My Scripts</span>
             </TabsTrigger>
-            <TabsTrigger value="ai" data-testid="tab-ai" className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
-              AI Generator
+            <TabsTrigger value="ai" data-testid="tab-ai" className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white flex items-center gap-2">
+              <Wand2 className="w-4 h-4" />
+              <span>AI Generator</span>
             </TabsTrigger>
-            <TabsTrigger value="tester" data-testid="tab-tester" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white">
-              Script Tester
+            <TabsTrigger value="tester" data-testid="tab-tester" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white flex items-center gap-2">
+              <FlaskConical className="w-4 h-4" />
+              <span>Script Tester</span>
             </TabsTrigger>
-            <TabsTrigger value="optimizer" data-testid="tab-optimizer" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white">
-              System Optimizer
+            <TabsTrigger value="optimizer" data-testid="tab-optimizer" className="data-[state=active]:bg-teal-600 data-[state=active]:text-white flex items-center gap-2">
+              <Settings2 className="w-4 h-4" />
+              <span>System Optimizer</span>
             </TabsTrigger>
           </TabsList>
 
