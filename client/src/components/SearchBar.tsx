@@ -45,8 +45,7 @@ export default function SearchBar({
       </div>
       <Button 
         onClick={onSearch}
-        size="lg"
-        className={`${buttonHeight} px-10 ${textSize} font-semibold`}
+        className={`${buttonHeight} px-8 ${textSize} font-bold`}
         data-testid="button-search"
       >
         Search
