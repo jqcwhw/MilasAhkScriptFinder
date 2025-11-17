@@ -5,10 +5,10 @@ import { githubSearchSchema, personalMacroSchema, type GitHubSearchResult } from
 import { z } from "zod";
 import OpenAI from "openai";
 
-// Using Replit AI Integrations for OpenAI - no API key needed, billed to Replit credits
+// Using OpenAI API directly
 const openai = new OpenAI({
-  baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL || "https://api.openai.com/v1",
-  apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY || "dummy-key-for-replit-ai"
+  baseURL: "https://api.openai.com/v1",
+  apiKey: "sk-proj-ghzfBWqMld36Pcoc9CaftQv2HAowYO7a8bdn9SjxZ3m6gGLUrXejpJfdvHtr5VAVkfBL2j1mET3BlbkFJbFtyFdFVIW_DPaTbAjhxXgBMb5oUKTJaTXzlV_MyuAlS1uELgTFkAB3sXwusRG_yhEqQUU4A"
 });
 
 async function searchGitHubForAHKScripts(query: string, page: number = 1, perPage: number = 30): Promise<{ results: GitHubSearchResult[], totalCount: number }> {
