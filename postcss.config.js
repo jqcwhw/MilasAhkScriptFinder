@@ -4,7 +4,11 @@ import autoprefixer from 'autoprefixer';
 
 export default {
   plugins: [
-    tailwindcss(),
+    tailwindcss({
+      config: './tailwind.config.js'
+    }),
     autoprefixer(),
   ],
+  parser: false,
+  map: process.env.NODE_ENV === 'development'
 };
