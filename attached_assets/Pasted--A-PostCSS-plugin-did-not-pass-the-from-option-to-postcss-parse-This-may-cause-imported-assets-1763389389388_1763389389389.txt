@@ -1,0 +1,47 @@
+
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+2:21:25 PM [express] GET /api/macros/curated 200 in 2ms :: {"success":true,"macros":[{"name":"Fisch …
+2:21:25 PM [express] GET /api/macros/personal 200 in 0ms :: {"success":true,"macros":[]}
+2:21:58 PM [express] GET /api/macros/personal 304 in 0ms :: {"success":true,"macros":[]}
+2:21:58 PM [express] GET /api/macros/curated 304 in 0ms :: {"success":true,"macros":[{"name":"Fisch …
+Error generating script: AuthenticationError: 401 Incorrect API key provided: skprojgh***************************************************************************************************************************************************UU4A. You can find your API key at https://platform.openai.com/account/api-keys.
+    at Function.generate (/home/runner/workspace/node_modules/openai/src/core/error.ts:76:14)
+    at OpenAI.makeStatusError (/home/runner/workspace/node_modules/openai/src/client.ts:478:28)
+    at OpenAI.makeRequest (/home/runner/workspace/node_modules/openai/src/client.ts:728:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async <anonymous> (/home/runner/workspace/server/routes.ts:169:24) {
+  status: 401,
+  headers: Headers {
+    date: 'Mon, 17 Nov 2025 14:22:18 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '409',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_c3f332552f144cc3a5fd3f9d245ae66d',
+    'x-envoy-upstream-service-time': '18',
+    'x-openai-proxy-wasm': 'v0.1',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=JMqAy92zcwwPhbbPdP7HXOZ85QTEeKnqqyDP_ZuBqHw-1763389338-1.0.1.1-yOkTqGd0HHsoJA1.fjXxvgOBUr1vnfFg3_CmenhdH7xynBcpgpeW3FUiC4v8Gih_IZx5XDp8u3mWhSfknEML0aHYVmR9HIDuxgm3A3Jn0VI; path=/; expires=Mon, 17-Nov-25 14:52:18 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=fYu.ZuLMGqXW5W_3ZqwodXQXBcBXzrnko5i.zjyGpP4-1763389338408-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'x-content-type-options': 'nosniff',
+    server: 'cloudflare',
+    'cf-ray': '99ffe1245accb2e1-ATL',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_c3f332552f144cc3a5fd3f9d245ae66d',
+  error: {
+    message: 'Incorrect API key provided: skprojgh***************************************************************************************************************************************************UU4A. You can find your API key at https://platform.openai.com/account/api-keys.',
+    type: 'invalid_request_error',
+    param: null,
+    code: 'invalid_api_key'
+  },
+  code: 'invalid_api_key',
+  param: null,
+  type: 'invalid_request_error'
+}
+2:22:18 PM [express] POST /api/ai/generate 500 in 224ms :: {"success":false,"error":"Failed to gener…
+2:22:22 PM [express] GET /api/ps99/clan-battle 200 in 127ms :: {"status":"ok","data":{"_id":"68f448d…
+2:22:22 PM [express] GET /api/ps99/collections 200 in 185ms :: {"status":"ok","data":["Achievements"…
+2:22:22 PM [express] GET /api/ps99/rap 200 in 323ms :: {"status":"ok","data":[{"category":"Tool","co…
+2:22:22 PM [express] GET /api/ps99/clans 200 in 415ms :: {"status":"ok","data":[{"Created":172278015…
+2:22:52 PM [express] GET /api/ps99/clan-battle 304 in 104ms :: {"status":"ok","data":{"_id":"68f448d…
