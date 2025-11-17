@@ -8,7 +8,7 @@ import OpenAI from "openai";
 // Using OpenAI API directly
 const openai = new OpenAI({
   baseURL: "https://api.openai.com/v1",
-  apiKey: "sk-proj-ghzfBWqMld36Pcoc9CaftQv2HAowYO7a8bdn9SjxZ3m6gGLUrXejpJfdvHtr5VAVkfBL2j1mET3BlbkFJbFtyFdFVIW_DPaTbAjhxXgBMb5oUKTJaTXzlV_MyuAlS1uELgTFkAB3sXwusRG_yhEqQUU4A"
+  apiKey: process.env.OPENAI_API_KEY
 });
 
 async function searchGitHubForAHKScripts(query: string, page: number = 1, perPage: number = 30): Promise<{ results: GitHubSearchResult[], totalCount: number }> {
