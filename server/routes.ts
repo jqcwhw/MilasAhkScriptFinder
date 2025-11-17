@@ -7,8 +7,8 @@ import OpenAI from "openai";
 
 // Using Replit AI Integrations for OpenAI - no API key needed, billed to Replit credits
 const openai = new OpenAI({
-  baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
-  apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY
+  baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL || "https://api.openai.com/v1",
+  apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY || "dummy-key-for-replit-ai"
 });
 
 async function searchGitHubForAHKScripts(query: string, page: number = 1, perPage: number = 30): Promise<{ results: GitHubSearchResult[], totalCount: number }> {
