@@ -1,8 +1,8 @@
 
+import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 import tailwindcssTypography from "@tailwindcss/typography";
 
-/** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
@@ -107,4 +107,4 @@ export default {
     },
   },
   plugins: [tailwindcssAnimate, tailwindcssTypography],
-};
+} satisfies Config;
