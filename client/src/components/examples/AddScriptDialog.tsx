@@ -1,4 +1,4 @@
-import AddScriptDialog from '../AddScriptDialog';
+import AddMacroDialog from '../AddMacroDialog';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -8,10 +8,10 @@ export default function AddScriptDialogExample() {
   return (
     <div>
       <Button onClick={() => setOpen(true)}>Open Dialog</Button>
-      <AddScriptDialog 
+      <AddMacroDialog 
         open={open}
         onOpenChange={setOpen}
-        onSave={(script) => console.log('Save script:', script)}
+        onSave={(macro) => console.log('Save macro:', macro)}
       />
     </div>
   );

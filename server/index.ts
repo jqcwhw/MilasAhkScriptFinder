@@ -2,6 +2,13 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { initializeMacros } from "./init-macros";
+import path from 'path';
+import { fileURLToPath } from 'url';
+import cors from 'cors';
+import { router } from './routes.js'; // Assuming routes are exported from routes.js
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -50,7 +57,7 @@ app.use((req, res, next) => {
 (async () => {
   // Initialize default macros on startup
   await initializeMacros();
-  
+
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
@@ -67,7 +74,17 @@ app.use((req, res, next) => {
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
-    serveStatic(app);
+    // Serve static files from client dist directory
+    const clientDistPath = path.join(__dirname, '../client');
+    app.use(express.static(clientDistPath));
+
+    // API routes
+    app.use('/api', router);
+
+    // Catch-all handler for SPA routing
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(clientDistPath, 'index.html'));
+    });
   }
 
   // ALWAYS serve the app on the port specified in the environment variable PORT

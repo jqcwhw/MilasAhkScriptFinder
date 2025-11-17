@@ -1,6 +1,6 @@
-import ScriptCard, { Script } from '../ScriptCard';
+import MacroCard, { Macro } from '../MacroCard';
 
-const mockScript: Script = {
+const mockScript: Macro = {
   id: '1',
   name: 'Window Manager',
   description: 'Quickly move and resize windows with keyboard shortcuts. Supports multi-monitor setups.',
@@ -13,10 +13,10 @@ const mockScript: Script = {
 
 export default function ScriptCardExample() {
   return (
-    <ScriptCard 
-      script={mockScript}
-      onDownload={(script) => console.log('Download:', script.name)}
-      onPreview={(script) => console.log('Preview:', script.name)}
+    <MacroCard 
+      macro={mockScript}
+      onDownload={(macro) => console.log('Download:', macro.name)}
+      onPreview={(macro) => console.log('Preview:', macro.name)}
     />
   );
 }
