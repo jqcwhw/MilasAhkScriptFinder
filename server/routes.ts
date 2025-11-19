@@ -21,7 +21,11 @@ async function searchGitHubForAHKScripts(query: string, page: number = 1, perPag
   };
   
   if (process.env.GITHUB_PERSONAL_ACCESS_TOKEN) {
+    console.log('GitHub token found, length:', process.env.GITHUB_PERSONAL_ACCESS_TOKEN.length);
+    console.log('Token starts with:', process.env.GITHUB_PERSONAL_ACCESS_TOKEN.substring(0, 4) + '...');
     headers['Authorization'] = `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`;
+  } else {
+    console.log('No GITHUB_PERSONAL_ACCESS_TOKEN found in environment');
   }
   
   const response = await fetch(url, { headers });
