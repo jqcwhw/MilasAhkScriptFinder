@@ -20,8 +20,8 @@ async function searchGitHubForAHKScripts(query: string, page: number = 1, perPag
     'User-Agent': 'AHK-Script-Finder',
   };
   
-  if (process.env.GITHUB_TOKEN) {
-    headers['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
+  if (process.env.GITHUB_PERSONAL_ACCESS_TOKEN) {
+    headers['Authorization'] = `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`;
   }
   
   const response = await fetch(url, { headers });
@@ -48,8 +48,8 @@ async function searchGitHubForAHKScripts(query: string, page: number = 1, perPag
             'User-Agent': 'AHK-Script-Finder',
           };
           
-          if (process.env.GITHUB_TOKEN) {
-            contentHeaders['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
+          if (process.env.GITHUB_PERSONAL_ACCESS_TOKEN) {
+            contentHeaders['Authorization'] = `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`;
           }
           
           const contentResponse = await fetch(item.url, { headers: contentHeaders });
